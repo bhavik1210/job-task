@@ -1,1 +1,1 @@
-export const backendurl = 'http://localhost:8000/api'
+export const backendurl = 'https://job-task-backend-zeta.vercel.app/api'
