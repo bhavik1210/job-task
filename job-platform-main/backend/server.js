@@ -18,13 +18,14 @@ cloudinary.config({
   api_secret: 'odDYYUeLVENsGza_Kld1jQ0NEW4',
 });
 
-// CORS should come FIRST
-app.use(cors({
-  origin: "https://job-task-frontend-theta.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-}));
+
+
+app.use(
+  cors({
+    origin: "https://job-task-frontend-theta.vercel.app",  // Allow only your frontend
+    credentials: true,                // Allow cookies & auth headers
+  })
+);
 
 // Other middlewares
 app.use(cookieParser());
