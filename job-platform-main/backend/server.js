@@ -20,17 +20,19 @@ const app = express();
 
 // Enable file uploads
 
+
+
+app.use(cookieParser());
+app.use(express.json()); 
+
+app.use(fileUpload());
+
 app.use(
   cors({
     origin: "https://job-task-eight.vercel.app",  
     credentials: true,                
   })
 );
-
-app.use(cookieParser());
-app.use(express.json()); 
-
-app.use(fileUpload());
 
 
 // Routes
