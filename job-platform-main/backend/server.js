@@ -9,8 +9,8 @@ const fileUpload = require('express-fileupload');
 // Cloudinary configuration
 cloudinary.config({
   cloud_name: 'dwsb3pmxs',  // replace with your Cloudinary cloud name
-  api_key: '313339969372339',  // replace with your Cloudinary API key
-  api_secret: 'odDYYUeLVENsGza_Kld1jQ0NEW4',  // replace with your Cloudinary API secret
+  api_key: '313339969372339',        // replace with your Cloudinary API key
+  api_secret: 'odDYYUeLVENsGza_Kld1jQ0NEW4',   // replace with your Cloudinary API secret
 });
 
 dotenv.config();
@@ -19,33 +19,40 @@ connectDB();
 const app = express();
 
 // Enable file uploads
-app.use(cookieParser());
-app.use(express.json());
-app.use(fileUpload());
 
-// CORS Configuration
+
+app.use(cookieParser());
+app.use(express.json()); 
+
+
 app.use(
   cors({
-    origin: "https://job-task-eight.vercel.app",  // Your frontend URL
-    credentials: true,  // Allow cookies to be sent
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: "https://job-task-frontend-theta.vercel.app",  
+    credentials: true,                
   })
 );
+
+app.use(fileUpload());
+
 
 // Routes
 const user = require("./controller/user.js");
 const jobs = require("./controller/job.js");
 const application = require("./controller/applicant.js");
 
+
+
+
 app.use("/api/user", user);
 app.use("/api/jobs", jobs);
 app.use("/api/application", application);
 
-// Handling Pre-flight Requests
-app.options('*', cors());  // Handle pre-flight requests
+
+
+
 
 const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

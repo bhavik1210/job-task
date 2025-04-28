@@ -1,1 +1,1 @@
-export const backendurl = 'https://job-backend-gold.vercel.app/api'
+export const backendurl = 'http://localhost:8000/api'
