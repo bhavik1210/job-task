@@ -1,1 +1,1 @@
-export const backendurl = 'https://job-task-f7w7.vercel.app/api'
+export const backendurl = 'https://job-backend-gold.vercel.app/api'
